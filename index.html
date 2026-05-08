@@ -1,0 +1,636 @@
+1<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CentralAI — Hub de Inteligências Artificiais. Compare, recomende e use as melhores IAs em um único lugar. ChatGPT, Claude, Gemini e muito mais." />
+  <meta name="keywords" content="inteligência artificial, IA, ChatGPT, Claude, Gemini, hub, comparador" />
+  <meta property="og:title" content="CentralAI — Hub de Inteligências Artificiais" />
+  <meta property="og:description" content="Compare e use as melhores IAs em um único ambiente centralizado." />
+  <meta property="og:type" content="website" />
+  <title>CentralAI — Hub de Inteligências Artificiais</title>
+
+  <!-- Fontes: Inter (UI) e JetBrains Mono (código) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Acessibilidade: pular para o conteúdo principal -->
+  <a class="skip-link" href="#main">Pular para o conteúdo principal</a>
+
+  <!-- Toast: notificações ao vivo para leitores de tela -->
+  <div id="toast-container" class="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ═══════════════════════════════════════ NAVBAR ═══════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar__inner container" aria-label="Navegação principal">
+
+      <a href="#hero" class="navbar__logo" aria-label="CentralAI — Página inicial">
+        <svg class="navbar__logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <polygon points="14,2 26,9 26,19 14,26 2,19 2,9" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+          <circle cx="14" cy="14" r="4" fill="url(#logoGrad)"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="navbar__logo-text">Central<span class="text-gradient">AI</span></span>
+      </a>
+
+      <ul class="navbar__links" role="list">
+        <li><a href="#features"    class="navbar__link">Funcionalidades</a></li>
+        <li><a href="#catalogo"    class="navbar__link">Catálogo</a></li>
+        <li><a href="#comparador"  class="navbar__link">Comparador</a></li>
+        <li><a href="#recomendador" class="navbar__link">Recomendador</a></li>
+        <li><a href="#chat"        class="navbar__link">Assistente</a></li>
+        <li><a href="#planos"      class="navbar__link">Planos</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="btn btn--ghost btn--sm" id="btn-login">Entrar</button>
+        <button class="btn btn--primary btn--sm" id="btn-signup">Começar grátis</button>
+        <button
+          class="navbar__hamburger"
+          id="mobile-menu-toggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div class="navbar__mobile-menu" id="mobile-menu" hidden role="navigation" aria-label="Menu mobile">
+      <ul role="list">
+        <li><a href="#features"    class="navbar__mobile-link">Funcionalidades</a></li>
+        <li><a href="#catalogo"    class="navbar__mobile-link">Catálogo</a></li>
+        <li><a href="#comparador"  class="navbar__mobile-link">Comparador</a></li>
+        <li><a href="#recomendador" class="navbar__mobile-link">Recomendador</a></li>
+        <li><a href="#chat"        class="navbar__mobile-link">Assistente IA</a></li>
+        <li><a href="#planos"      class="navbar__mobile-link">Planos</a></li>
+        <li class="navbar__mobile-btns">
+          <button class="btn btn--ghost btn--full">Entrar</button>
+          <button class="btn btn--primary btn--full">Começar grátis</button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════ MAIN ═══════════════════════════════════════ -->
+  <main id="main" tabindex="-1">
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <!-- Plano de fundo animado -->
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__dots"></div>
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+        <div class="hero__orb hero__orb--4"></div>
+        <div class="hero__line"></div>
+      </div>
+
+      <div class="container hero__container">
+        <div class="hero__badge" role="note">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Novo: Gemini 2.0 Flash e GPT-4o disponíveis no catálogo
+        </div>
+
+        <h1 class="hero__title" id="hero-title">
+          Todas as <span class="text-gradient">Inteligências Artificiais</span>
+          em um único lugar
+        </h1>
+
+        <p class="hero__subtitle">
+          Compare, descubra e use as melhores IAs do mercado. Economize tempo,
+          reduza custos e maximize sua produtividade com o HUB de IA mais completo.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#catalogo" class="btn btn--primary btn--lg">Explorar Catálogo</a>
+          <a href="#recomendador" class="btn btn--outline btn--lg">Qual IA devo usar?</a>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div class="hero__scroll" aria-hidden="true">
+          <span>scroll</span>
+          <div class="hero__scroll-arrow"></div>
+        </div>
+
+        <div class="hero__social-proof" aria-label="Prova social">
+          <div class="hero__avatars" aria-hidden="true">
+            <div class="hero__avatar hero__avatar--1">B</div>
+            <div class="hero__avatar hero__avatar--2">H</div>
+            <div class="hero__avatar hero__avatar--3">E</div>
+            <div class="hero__avatar hero__avatar--4">D</div>
+          </div>
+          <p><strong>+10.000 usuários</strong> já utilizam a plataforma</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ESTATÍSTICAS ─── -->
+    <section class="stats" aria-label="Estatísticas da plataforma">
+      <div class="container">
+        <ul class="stats__grid" role="list">
+          <li class="stats__item">
+            <span class="stats__number"><span class="stats__count" data-target="50">0</span>+</span>
+            <span class="stats__label">IAs Disponíveis</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__number"><span class="stats__count" data-target="10">0</span>k+</span>
+            <span class="stats__label">Usuários Ativos</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__number"><span class="stats__count" data-target="99">0</span>%</span>
+            <span class="stats__label">Uptime Garantido</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__number"><span class="stats__count" data-target="4.9" data-decimal="1">0</span>/5</span>
+            <span class="stats__label">Avaliação Média</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── FUNCIONALIDADES ─── -->
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Funcionalidades</span>
+          <h2 class="section__title" id="features-title">Tudo que você precisa em um só lugar</h2>
+          <p class="section__subtitle">Do catálogo à execução, passando por comparação e recomendação inteligente</p>
+        </header>
+
+        <ul class="features__grid" role="list">
+          <li class="feature-card" data-num="01">
+            <div class="feature-card__icon" aria-hidden="true">📚</div>
+            <h3 class="feature-card__title">Catálogo Inteligente</h3>
+            <p class="feature-card__desc">Explore mais de 50 IAs com descrições detalhadas, prós e contras, e filtros por tipo de tarefa: texto, imagem, código ou áudio.</p>
+          </li>
+          <li class="feature-card" data-num="02">
+            <div class="feature-card__icon" aria-hidden="true">⚡</div>
+            <h3 class="feature-card__title">Comparador Automático</h3>
+            <p class="feature-card__desc">Compare até 3 IAs simultaneamente em uma tabela clara com todos os critérios importantes: preço, rating, prós, contras e API.</p>
+          </li>
+          <li class="feature-card" data-num="03">
+            <div class="feature-card__icon" aria-hidden="true">🔌</div>
+            <h3 class="feature-card__title">Integração via API</h3>
+            <p class="feature-card__desc">Use as IAs diretamente na plataforma sem criar contas em múltiplos serviços. Uma chave de API, acesso a todas as ferramentas.</p>
+          </li>
+          <li class="feature-card" data-num="04">
+            <div class="feature-card__icon" aria-hidden="true">📊</div>
+            <h3 class="feature-card__title">Relatórios e Histórico</h3>
+            <p class="feature-card__desc">Acompanhe uso, custos e produtividade com relatórios detalhados. Favoritos, histórico e automações incluídos nos planos pagos.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── CATÁLOGO ─── -->
+    <section class="section catalog" id="catalogo" aria-labelledby="catalog-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Catálogo</span>
+          <h2 class="section__title" id="catalog-title">Encontre a IA ideal para você</h2>
+          <p class="section__subtitle">Filtre por tipo de tarefa e encontre a ferramenta perfeita</p>
+        </header>
+
+        <div class="catalog__controls">
+          <div class="catalog__search-wrap">
+            <label for="search-input" class="sr-only">Pesquisar IAs</label>
+            <span class="catalog__search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="search"
+              id="search-input"
+              class="catalog__search"
+              placeholder="Pesquisar IAs por nome, empresa ou tipo..."
+              aria-label="Pesquisar IAs no catálogo"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="catalog__filters" role="group" aria-label="Filtrar por tipo de IA">
+            <button class="filter-btn filter-btn--active" data-filter="all"        aria-pressed="true">Todas</button>
+            <button class="filter-btn"                    data-filter="text"       aria-pressed="false">📝 Texto</button>
+            <button class="filter-btn"                    data-filter="image"      aria-pressed="false">🎨 Imagem</button>
+            <button class="filter-btn"                    data-filter="code"       aria-pressed="false">💻 Código</button>
+            <button class="filter-btn"                    data-filter="audio"      aria-pressed="false">🎵 Áudio</button>
+            <button class="filter-btn"                    data-filter="multimodal" aria-pressed="false">🌐 Multimodal</button>
+          </div>
+        </div>
+
+        <p class="catalog__count" id="catalog-count" role="status" aria-live="polite"></p>
+
+        <ul class="catalog__grid" id="ai-catalog" role="list" aria-label="Lista de IAs disponíveis">
+          <!-- Preenchido pelo JavaScript (js/components.js) -->
+        </ul>
+
+        <div class="catalog__empty" id="catalog-empty" hidden>
+          <p>Nenhuma IA encontrada com os filtros selecionados.</p>
+          <button class="btn btn--outline btn--sm" onclick="CentralAI.app.resetFilters()">Limpar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── COMPARADOR ─── -->
+    <section class="section comparator" id="comparador" aria-labelledby="comparator-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Comparador</span>
+          <h2 class="section__title" id="comparator-title">Compare IAs lado a lado</h2>
+          <p class="section__subtitle">Selecione até 3 IAs para uma análise completa e detalhada</p>
+        </header>
+
+        <div class="comparator__selects">
+          <div class="comparator__slot">
+            <label for="cmp-1" class="comparator__label">IA 1</label>
+            <select id="cmp-1" class="comparator__select" aria-label="Primeira IA para comparação">
+              <option value="">Selecione uma IA...</option>
+            </select>
+          </div>
+          <div class="comparator__vs" aria-hidden="true">VS</div>
+          <div class="comparator__slot">
+            <label for="cmp-2" class="comparator__label">IA 2</label>
+            <select id="cmp-2" class="comparator__select" aria-label="Segunda IA para comparação">
+              <option value="">Selecione uma IA...</option>
+            </select>
+          </div>
+          <div class="comparator__vs" aria-hidden="true">VS</div>
+          <div class="comparator__slot">
+            <label for="cmp-3" class="comparator__label">IA 3 <small>(opcional)</small></label>
+            <select id="cmp-3" class="comparator__select" aria-label="Terceira IA para comparação (opcional)">
+              <option value="">Selecione uma IA...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="comparator__actions">
+          <button class="btn btn--primary" id="btn-compare">Comparar Agora</button>
+          <button class="btn btn--ghost btn--sm" id="btn-compare-clear">Limpar</button>
+        </div>
+
+        <div class="comparator__result" id="comparator-result" aria-live="polite">
+          <p class="comparator__hint">Selecione pelo menos 2 IAs para comparar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── RECOMENDADOR ─── -->
+    <section class="section recommender" id="recomendador" aria-labelledby="recommender-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Recomendador</span>
+          <h2 class="section__title" id="recommender-title">Qual IA é ideal para você?</h2>
+          <p class="section__subtitle">Responda algumas perguntas e nossa plataforma recomendará as melhores opções</p>
+        </header>
+
+        <div class="recommender__layout">
+          <form class="recommender__form" id="recommender-form" novalidate aria-label="Formulário de recomendação">
+
+            <div class="form-group">
+              <label for="task-type" class="form-label">
+                Tipo de tarefa <span class="form-required" aria-label="campo obrigatório">*</span>
+              </label>
+              <select id="task-type" name="taskType" class="form-select" required aria-required="true" aria-describedby="task-type-err">
+                <option value="">Selecione o tipo de tarefa...</option>
+                <option value="text">✍️ Escrita e Texto</option>
+                <option value="code">💻 Programação e Código</option>
+                <option value="image">🎨 Geração de Imagens</option>
+                <option value="audio">🎵 Áudio e Voz</option>
+                <option value="multimodal">🌐 Múltiplas tarefas</option>
+              </select>
+              <span class="form-error" id="task-type-err" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">Orçamento</legend>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="free" checked />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>Apenas gratuito</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="paid" />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>Pago (mais qualidade)</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="any" />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>Sem restrição</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">Prioridade principal</legend>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="priority" value="quality" checked />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>🏆 Qualidade</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="priority" value="speed" />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>⚡ Velocidade</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="priority" value="cost" />
+                    <span class="radio-btn" aria-hidden="true"></span>
+                    <span>💰 Menor custo</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="form-group">
+              <label for="req-extra" class="form-label">Requisitos adicionais <small>(opcional)</small></label>
+              <textarea
+                id="req-extra"
+                name="requirements"
+                class="form-textarea"
+                placeholder="Ex: preciso de suporte a português, API disponível, open source..."
+                rows="3"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg btn--full">
+              🤖 Recomendar IA para mim
+            </button>
+          </form>
+
+          <div class="recommender__results" id="recommender-results" aria-live="polite">
+            <div class="recommender__placeholder">
+              <div class="recommender__placeholder-icon" aria-hidden="true">🤖</div>
+              <p>Preencha o formulário ao lado para receber recomendações personalizadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PLANOS ─── -->
+    <section class="section plans" id="planos" aria-labelledby="plans-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Planos</span>
+          <h2 class="section__title" id="plans-title">Escolha o plano ideal</h2>
+          <p class="section__subtitle">Comece grátis e escale conforme sua necessidade</p>
+        </header>
+
+        <div class="plans__billing-toggle">
+          <span>Mensal</span>
+          <label class="toggle-switch" for="billing-toggle" aria-label="Alternar cobrança mensal ou anual">
+            <input type="checkbox" id="billing-toggle" role="switch" />
+            <span class="toggle-switch__track"></span>
+          </label>
+          <span>Anual <span class="plans__discount">-20%</span></span>
+        </div>
+
+        <ul class="plans__grid" role="list">
+          <!-- Free -->
+          <li class="plan-card">
+            <div class="plan-card__header">
+              <h3 class="plan-card__name">Free</h3>
+              <div class="plan-card__price">
+                <span class="plan-card__amount">R$&nbsp;0</span>
+                <span class="plan-card__period">/mês</span>
+              </div>
+              <p class="plan-card__desc">Para explorar a plataforma</p>
+            </div>
+            <ul class="plan-card__features" role="list">
+              <li class="plan-card__feat plan-card__feat--on">Catálogo completo de IAs</li>
+              <li class="plan-card__feat plan-card__feat--on">Comparação de até 2 IAs</li>
+              <li class="plan-card__feat plan-card__feat--on">Recomendador básico</li>
+              <li class="plan-card__feat plan-card__feat--on">10 requisições/dia via API</li>
+              <li class="plan-card__feat plan-card__feat--off">Histórico de uso</li>
+              <li class="plan-card__feat plan-card__feat--off">Automações</li>
+              <li class="plan-card__feat plan-card__feat--off">Relatórios avançados</li>
+            </ul>
+            <button class="btn btn--outline btn--full">Começar grátis</button>
+          </li>
+
+          <!-- Pro (destaque) -->
+          <li class="plan-card plan-card--featured" aria-label="Plano mais popular">
+            <div class="plan-card__popular">Mais popular</div>
+            <div class="plan-card__header">
+              <h3 class="plan-card__name">Pro</h3>
+              <div class="plan-card__price">
+                <span class="plan-card__amount" data-monthly="49" data-annual="39">R$&nbsp;49</span>
+                <span class="plan-card__period">/mês</span>
+              </div>
+              <p class="plan-card__desc">Para profissionais e criadores</p>
+            </div>
+            <ul class="plan-card__features" role="list">
+              <li class="plan-card__feat plan-card__feat--on">Tudo do Free</li>
+              <li class="plan-card__feat plan-card__feat--on">Comparação de até 5 IAs</li>
+              <li class="plan-card__feat plan-card__feat--on">1.000 requisições/dia via API</li>
+              <li class="plan-card__feat plan-card__feat--on">Histórico completo (90 dias)</li>
+              <li class="plan-card__feat plan-card__feat--on">Favoritos ilimitados</li>
+              <li class="plan-card__feat plan-card__feat--on">Automações básicas</li>
+              <li class="plan-card__feat plan-card__feat--off">Relatórios avançados</li>
+            </ul>
+            <button class="btn btn--primary btn--full">Assinar Pro</button>
+          </li>
+
+          <!-- Enterprise -->
+          <li class="plan-card">
+            <div class="plan-card__header">
+              <h3 class="plan-card__name">Enterprise</h3>
+              <div class="plan-card__price">
+                <span class="plan-card__amount" data-monthly="199" data-annual="159">R$&nbsp;199</span>
+                <span class="plan-card__period">/mês</span>
+              </div>
+              <p class="plan-card__desc">Para equipes e empresas</p>
+            </div>
+            <ul class="plan-card__features" role="list">
+              <li class="plan-card__feat plan-card__feat--on">Tudo do Pro</li>
+              <li class="plan-card__feat plan-card__feat--on">Usuários ilimitados</li>
+              <li class="plan-card__feat plan-card__feat--on">Requisições ilimitadas via API</li>
+              <li class="plan-card__feat plan-card__feat--on">Histórico ilimitado</li>
+              <li class="plan-card__feat plan-card__feat--on">Automações avançadas</li>
+              <li class="plan-card__feat plan-card__feat--on">Dashboards e relatórios</li>
+              <li class="plan-card__feat plan-card__feat--on">Suporte prioritário 24/7</li>
+            </ul>
+            <button class="btn btn--outline btn--full">Falar com vendas</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── CHAT ─── -->
+    <section class="section chat-section" id="chat" aria-labelledby="chat-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Assistente IA</span>
+          <h2 class="section__title" id="chat-title">Pergunte ao Assistente CentralAI</h2>
+          <p class="section__subtitle">Tire dúvidas sobre qualquer IA do catálogo em linguagem natural</p>
+        </header>
+
+        <div class="chat-layout">
+          <div class="chat-card" role="region" aria-label="Chat com assistente">
+            <!-- ChatPlugin (extensions.js) renderiza aqui via onActivate() -->
+            <div id="chat-panel" class="chat__panel">
+              <div class="chat__loading" aria-label="Carregando assistente">
+                <div class="chat__loading-dot"></div>
+                <div class="chat__loading-dot"></div>
+                <div class="chat__loading-dot"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-info">
+            <h3 class="chat-info__title">Como funciona?</h3>
+            <ul class="chat-info__list" role="list">
+              <li class="chat-info__item">
+                <span class="chat-info__icon" aria-hidden="true">💬</span>
+                <span>Pergunte em linguagem natural sobre qualquer IA</span>
+              </li>
+              <li class="chat-info__item">
+                <span class="chat-info__icon" aria-hidden="true">🔍</span>
+                <span>Compare características sem abrir outras abas</span>
+              </li>
+              <li class="chat-info__item">
+                <span class="chat-info__icon" aria-hidden="true">⚡</span>
+                <span>Receba recomendações personalizadas instantaneamente</span>
+              </li>
+              <li class="chat-info__item">
+                <span class="chat-info__icon" aria-hidden="true">🔌</span>
+                <span>Arquitetura extensível — em breve conectado a APIs reais</span>
+              </li>
+            </ul>
+
+            <div class="chat-info__tech">
+              <p class="chat-info__tech-title">Arquitetura do assistente</p>
+              <ul class="chat-info__tech-list" role="list">
+                <li><code>ChatPlugin</code> — Plugin com ciclo de vida gerenciado</li>
+                <li><code>AIAPIAdapter</code> — Normaliza OpenAI / Anthropic / Gemini</li>
+                <li><code>PluginManager</code> — Singleton que coordena plugins</li>
+                <li><code>Command Pattern</code> — Histórico de ações reversíveis</li>
+              </ul>
+            </div>
+
+            <div class="chat-info__suggestions" role="group" aria-label="Sugestões de perguntas">
+              <p class="chat-info__suggestions-title">Experimente perguntar:</p>
+              <div class="chat-suggestions">
+                <button class="chat-suggestion" type="button" data-query="Qual a melhor IA gratuita?">Qual a melhor IA gratuita?</button>
+                <button class="chat-suggestion" type="button" data-query="Melhor IA para programação">Melhor IA para código</button>
+                <button class="chat-suggestion" type="button" data-query="Compare ChatGPT e Claude">Compare ChatGPT e Claude</button>
+                <button class="chat-suggestion" type="button" data-query="Quais IAs têm API disponível?">IAs com API disponível</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ MODAL ═══════════════════════════════════════ -->
+  <div
+    class="modal-overlay"
+    id="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    hidden
+  >
+    <div class="modal" role="document">
+      <button class="modal__close" id="modal-close" aria-label="Fechar modal">&times;</button>
+      <div class="modal__content" id="modal-content">
+        <!-- Preenchido dinamicamente pelo JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#hero" class="navbar__logo" aria-label="CentralAI — Página inicial">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <polygon points="14,2 26,9 26,19 14,26 2,19 2,9" stroke="url(#footerGrad)" stroke-width="2" fill="none"/>
+            <circle cx="14" cy="14" r="4" fill="url(#footerGrad)"/>
+            <defs>
+              <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#2563eb"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          Central<span class="text-gradient">AI</span>
+        </a>
+        <p class="footer__desc">O HUB de inteligências artificiais mais completo do Brasil. Compare, descubra e use as melhores IAs em um único lugar.</p>
+        <p class="footer__copy">© 2025 CentralAI · UFG — INF · Padrões de Projeto de Software</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navegação do produto">
+        <h4 class="footer__nav-title">Produto</h4>
+        <ul role="list">
+          <li><a href="#features"    class="footer__link">Funcionalidades</a></li>
+          <li><a href="#catalogo"    class="footer__link">Catálogo</a></li>
+          <li><a href="#comparador"  class="footer__link">Comparador</a></li>
+          <li><a href="#recomendador" class="footer__link">Recomendador</a></li>
+          <li><a href="#chat"        class="footer__link">Assistente IA</a></li>
+          <li><a href="#planos"      class="footer__link">Planos</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-label="Equipe de desenvolvimento">
+        <h4 class="footer__nav-title">Equipe (UFG)</h4>
+        <ul role="list">
+          <li><a href="https://github.com/brennerodrigues" class="footer__link" target="_blank" rel="noopener noreferrer">Brenner Sardinha</a></li>
+          <li><a href="https://github.com/heitor-barbosa"  class="footer__link" target="_blank" rel="noopener noreferrer">Heitor Barbosa</a></li>
+          <li><a href="https://github.com/EnzoMachad0"    class="footer__link" target="_blank" rel="noopener noreferrer">Enzo Machado</a></li>
+          <li><a href="https://github.com/danilo-sgalvao" class="footer__link" target="_blank" rel="noopener noreferrer">Danilo Sucupira</a></li>
+          <li><a href="https://github.com/luizaugusto01"  class="footer__link" target="_blank" rel="noopener noreferrer">Luiz Augusto Godinho</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-label="Documentação do projeto">
+        <h4 class="footer__nav-title">Documentação</h4>
+        <ul role="list">
+          <li><a href="docs/ARCHITECTURE.md"    class="footer__link">Arquitetura</a></li>
+          <li><a href="docs/DESIGN_PATTERNS.md" class="footer__link">Design Patterns</a></li>
+          <li><a href="docs/MODELING.md"        class="footer__link">Modelagem UML</a></li>
+          <li><a href="docs/REQUIREMENTS.md"    class="footer__link">Requisitos</a></li>
+          <li><a href="docs/HCI.md"             class="footer__link">IHC</a></li>
+          <li><a href="docs/DATABASE.md"        class="footer__link">Banco de Dados</a></li>
+          <li><a href="docs/PROCESS.md"         class="footer__link">Processos</a></li>
+          <li><a href="docs/GCS.md"             class="footer__link">GCS</a></li>
+          <li><a href="docs/PARADIGMS.md"       class="footer__link">Paradigmas</a></li>
+          <li><a href="docs/NETWORKS.md"        class="footer__link">Redes &amp; SO</a></li>
+          <li><a href="docs/PROJECT.md"         class="footer__link">Gerência de Projeto</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </footer>
+
+  <!-- Scripts carregados em ordem de dependência -->
+  <script src="js/models.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/extensions.js"></script>
+  <script src="js/repository.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

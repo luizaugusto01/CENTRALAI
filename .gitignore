@@ -1,0 +1,53 @@
+# === Dependências ===
+node_modules/
+.pnp
+.pnp.js
+
+# === Arquivos de ambiente (NUNCA commitar chaves/senhas) ===
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# === Build e dist ===
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# === IDEs e editores ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === Cobertura de testes ===
+coverage/
+.nyc_output/
+
+# === Cache ===
+.cache/
+.parcel-cache/
+.eslintcache
+
+# === Sistema operacional ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
